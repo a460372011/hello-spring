@@ -93,7 +93,18 @@ public class MyController {
     }
 }
 ```
-## 5。 运行程序，pom里添加插件jetty-maven-plugin，使用jetty:run运行
+## 5. 配置bean配置里的视图和组件扫描
+```
+    <context:component-scan base-package="com.kavy.spring.hellospring.controller"></context:component-scan>
+
+    <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>
+        <property name="prefix" value="/WEB-INF/jsp/"/>
+        <property name="suffix" value=".jsp"/>
+    </bean>
+```
+
+## 6。 运行程序，pom里添加插件jetty-maven-plugin，使用jetty:run运行
 ```
 <build>
         <plugins>
